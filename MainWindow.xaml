@@ -33,7 +33,7 @@
             <Label Content="Від" HorizontalAlignment="Left" Height="34" Margin="16,29,0,0" VerticalAlignment="Top" Width="38"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="63,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36"/>
             <Label Content="до" HorizontalAlignment="Left" Height="31" Margin="108,29,0,0" VerticalAlignment="Top" Width="32"/>
-            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="395" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1">
+            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="395" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" SelectionChanged="BookList_SelectionChanged">
                 <DataGrid.Columns >
                     <DataGridTextColumn Header = "Назва книги" Binding = "{Binding number}" Width="192.5"/>
                     <DataGridTextColumn Header = "К-ть" Binding ="{Binding city}" Width="50"/>
