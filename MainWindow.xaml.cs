@@ -20,11 +20,26 @@ namespace BookStore
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Book> booksToShowList = new List<Book>(100);
         public MainWindow()
         {
             InitializeComponent();
+            DataAccess access = new DataAccess();
+            booksToShowList = access.OpenDbFile();
+            BookList.ItemsSource = booksToShowList;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void autorizationButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Visibility = Visibility.Collapsed;
+
+        }
     }
 }
