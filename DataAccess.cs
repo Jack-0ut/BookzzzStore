@@ -18,7 +18,8 @@ namespace BookStore
             {
                 //connection to BD
                 //string connStr = "Server=localhost; Database=bookstore; User Id=root; Password=";
-                string connStr = "Server=localhost;Database=bookstore;port=3306;User Id=root;password=Eugene_Solovey_2022;";
+                //string connStr = "Server=localhost;Database=bookstore;port=3306;User Id=root;password=Eugene_Solovey_2022;";
+                string connStr = "Database=bookstore;Data Source=localhost;User Id=root;Password=Eugene_Solovey_2022;";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 MySqlCommand command = new MySqlCommand();
                 //request to BD

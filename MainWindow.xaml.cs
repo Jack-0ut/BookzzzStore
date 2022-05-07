@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace BookStore
 {
@@ -25,8 +27,19 @@ namespace BookStore
         {
             InitializeComponent();
             DataAccess access = new DataAccess();
-            booksToShowList = access.OpenDbFile();
-            BookList.ItemsSource = booksToShowList;
+            try
+            {
+                booksToShowList = access.OpenDbFile();
+                BookList.ItemsSource = booksToShowList;
+            }catch(Exception ex)
+            {
+                string errMsg = "";
+                errMsg = "Підключіть веб-сервер MySQL та виконайте команду Файл-Завантажити";
+                MessageBox.Show(ex.Message + char.ConvertFromUtf32(13) + char.ConvertFromUtf32(13) +
+                errMsg, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
