@@ -23,5 +23,35 @@ namespace BookStore
         {
             InitializeComponent();
         }
+
+        // Checking whether Editor is fill the correct data
+        private void AutorizationCheck()
+        {
+            if (MainWindow.autorization.isAdmin(loginBox.Text, passwordBox.Text))
+            {
+                Application.Current.MainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Введіть коректні дані для авторизації", "Помилка!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+        private void okButton_Click(object sender, RoutedEventArgs e)
+        {
+            AutorizationCheck();
+        }
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                AutorizationCheck();
+            }
+        }
+        private void LoginForm_Closed(object sender, EventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+        }
+
     }
 }

@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data;
 using MySql.Data.MySqlClient;
-
 namespace BookStore
 {
     /// <summary>
@@ -23,6 +22,7 @@ namespace BookStore
     public partial class MainWindow : Window
     {
         public List<Book> booksToShowList = new List<Book>(100);
+        public static Autorization autorization = new Autorization();
         public MainWindow()
         {
             InitializeComponent();
@@ -42,16 +42,16 @@ namespace BookStore
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        // Work that done after click on the button "Autorization"
         private void autorizationButton_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             this.Visibility = Visibility.Collapsed;
+        }
+
+        private void InfoBookForm_Activated(object sender, EventArgs e)
+        {
 
         }
     }

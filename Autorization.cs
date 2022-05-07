@@ -13,15 +13,14 @@ namespace BookStore
             get;
             set;
         }
-        public int logCheck(string loginText,string passwordText)
+        public bool isAdmin(string loginText,string passwordText)
         {
             logUser = 0;
             if ((loginText == "Solovey" || loginText == "Ashenafi") && (passwordText == "12345"))
             {
-                logUser = 1;
+                return true;
             }
-            return logUser;
+            return false;
         }
-
     }
 }
