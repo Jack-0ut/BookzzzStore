@@ -29,7 +29,9 @@ namespace BookStore
         {
             if (MainWindow.autorization.isAdmin(loginBox.Text, passwordBox.Text))
             {
-                Application.Current.MainWindow.Show();
+                Application.Current.MainWindow.Close();
+                EditorWindow editorWindow = new EditorWindow();
+                editorWindow.Show();
                 this.Close();
             }
             else
