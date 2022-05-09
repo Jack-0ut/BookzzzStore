@@ -19,6 +19,9 @@ namespace BookStore
     /// </summary>
     public partial class EditorWindow : Window
     {
+        DataAccess dataAccess;
+        Book bookToEdit; // book that Editor edit 
+        EditDB editedRow = new EditDB();
         public EditorWindow()
         {
             InitializeComponent();

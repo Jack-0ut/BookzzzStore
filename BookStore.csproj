@@ -135,5 +135,26 @@
   <ItemGroup>
     <Resource Include="free-icon-journal-1056423.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-edit-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-add-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-add-30.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
