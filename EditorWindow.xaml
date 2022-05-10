@@ -11,11 +11,11 @@
     <Grid Background="#FFDFDFDF" Margin="0,0,3.4,0.4">
         <Grid HorizontalAlignment="Left" Height="63" Margin="-4,0,-2.6,0" VerticalAlignment="Top" Width="809" Background="#FF775142">
             <Label Content="КОЛО" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" FontSize="18" Grid.ColumnSpan="2" Height="34" Width="59"/>
-            <Button x:Name="exitEditModeButton" Content="Вихід" HorizontalAlignment="Left" Height="27" Margin="676,16,0,0" VerticalAlignment="Top" Width="110" Background="#FF9A8578" Foreground="White"/>
+            <Button x:Name="exitEditModeButton" Content="Вихід" HorizontalAlignment="Left" Height="27" Margin="676,16,0,0" VerticalAlignment="Top" Width="110" Background="#FF9A8578" Foreground="White" Click="exitEditModeButton_Click"/>
         </Grid>
 
         <Grid HorizontalAlignment="Left" Height="418" Margin="23,65,0,0" VerticalAlignment="Top" Width="425">
-            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="420" AutoGenerateColumns="False">
+            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="420" AutoGenerateColumns="False" >
                 <DataGrid.Columns >
                     <DataGridTextColumn Header = "Назва книги" Binding = "{Binding name}" Width="192.5"/>
                     <DataGridTextColumn Header = "К-ть" Binding ="{Binding quantity}" Width="50"/>
@@ -31,13 +31,13 @@
                 <xctk:WatermarkTextBox x:Name="quantityValue" Watermark="Кількість" Margin="49,91,55,173" />
                 <xctk:WatermarkTextBox x:Name="ageRangeValue" Watermark="Вікові межі" Margin="49,137,54,127" />
                 <xctk:WatermarkTextBox x:Name="priceValue" Watermark="Ціна" Margin="50,184,52,80" />
-                <Button x:Name="SaveRedDB" Content="Зберегти" HorizontalAlignment="Left" Margin="59,238,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF9A8578" BorderBrush="#FF171414"/>
+                <Button x:Name="SaveRedDB" Content="Зберегти" HorizontalAlignment="Left" Margin="59,238,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF9A8578" BorderBrush="#FF171414" Click="SaveRedDB_Click"/>
                 <Label Content="Книга" HorizontalAlignment="Left" Margin="82,10,0,0" VerticalAlignment="Top" Foreground="White"/>
             </Grid>
 
         </GroupBox>
 
-        <Button x:Name="addButton" Margin="453,194,306,275"  BorderBrush="#FF9A8578">
+        <Button x:Name="addButton" Margin="453,194,306,275"  BorderBrush="#FF9A8578" Click="addButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -47,7 +47,7 @@
                 <ImageBrush ImageSource="icons8-add-30.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="editButton" Margin="453,260,306,208" BorderBrush="#FF9A8578">
+        <Button x:Name="editButton" Margin="453,260,306,208" BorderBrush="#FF9A8578" Click="editButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

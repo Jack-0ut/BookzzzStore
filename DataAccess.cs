@@ -10,17 +10,20 @@ namespace BookStore
 {
     public class DataAccess
     {
-
-        public string connStr;
+        //List<Book> booksToShowList;
+        public List<Book> booksToShowList;
+        public static MySqlConnection getConnection()
+        {
+            string connStr = "Database=bookstore;Data Source=localhost;User Id=root;Password=Eugene_Solovey_2022;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            return conn;
+        }
         public List<Book> OpenDbFile()
         {
             try
             {
                 //connection to BD
-                //string connStr = "Server=localhost; Database=bookstore; User Id=root; Password=";
-                //string connStr = "Server=localhost;Database=bookstore;port=3306;User Id=root;password=Eugene_Solovey_2022;";
-                string connStr = "Database=bookstore;Data Source=localhost;User Id=root;Password=Eugene_Solovey_2022;";
-                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlConnection conn = getConnection();
                 MySqlCommand command = new MySqlCommand();
                 //request to BD
                 string commandString = "SELECT * FROM books;";
@@ -33,7 +36,7 @@ namespace BookStore
                 reader = command.ExecuteReader();
 
                 //read BD to show book on the screen 
-                List<Book> booksToShowList = new List<Book>(100);
+                booksToShowList = new List<Book>(100);
                 int i = 0;
                 while (reader.Read())
                 {
@@ -46,12 +49,7 @@ namespace BookStore
             }
             catch (Exception ex)
             {
-                /*string errMsg = "";
-                errMsg = "Підключіть веб-сервер MySQL та виконайте команду Файл-Завантажити";
-                MessageBox.Show(ex.Message + char.ConvertFromUtf32(13) + char.ConvertFromUtf32(13) +
-                                errMsg, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);*/
                 return new List<Book>();
-
             }
         }
     }

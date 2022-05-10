@@ -9,6 +9,7 @@ namespace BookStore
         int quantity;
         string ageRange;
         double price;*/
+        public Book() { }
         public Book(string name,int quantity,string ageRange,double price)
         {
             this.name = name;
@@ -18,9 +19,9 @@ namespace BookStore
         }
 
         //public int id { get; private set; }
-        public string name { get; private set; }
-        public int quantity { get; private set; }
-        public string ageRange { get; private set; }
-        public double price { get; private set; }
+        public string name { get; set; }
+        public int quantity { get; set; }
+        public string ageRange { get; set; }
+        public double price { get;  set; }
     }
 }

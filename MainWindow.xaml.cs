@@ -21,15 +21,16 @@ namespace BookStore
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Book> booksToShowList = new List<Book>(100);
+        public static List<Book> booksToShowList = new List<Book>(100);
         public static Autorization autorization = new Autorization();
+        public static DataAccess dataConnection;
         public MainWindow()
         {
             InitializeComponent();
-            DataAccess access = new DataAccess();
+            dataConnection = new DataAccess();
             try
             {
-                booksToShowList = access.OpenDbFile();
+                booksToShowList = dataConnection.OpenDbFile();
                 BookList.ItemsSource = booksToShowList;
             }catch(Exception ex)
             {
