@@ -35,7 +35,7 @@ namespace BookStore
             }catch(Exception ex)
             {
                 string errMsg = "";
-                errMsg = "Підключіть веб-сервер MySQL та виконайте команду Файл-Завантажити";
+                errMsg = "Підключіть веб-сервер MySQL та перезавантажте програму";
                 MessageBox.Show(ex.Message + char.ConvertFromUtf32(13) + char.ConvertFromUtf32(13) +
                 errMsg, "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }

@@ -18,7 +18,7 @@ namespace BookStore
             this.price = price;
         }
 
-        //public int id { get; private set; }
+        public int id { get;set; }
         public string name { get; set; }
         public int quantity { get; set; }
         public string ageRange { get; set; }

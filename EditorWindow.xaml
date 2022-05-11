@@ -15,7 +15,7 @@
         </Grid>
 
         <Grid HorizontalAlignment="Left" Height="418" Margin="23,65,0,0" VerticalAlignment="Top" Width="425">
-            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="420" AutoGenerateColumns="False" >
+            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="420" AutoGenerateColumns="False" MouseDoubleClick="BookList_MouseDoubleClick" >
                 <DataGrid.Columns >
                     <DataGridTextColumn Header = "Назва книги" Binding = "{Binding name}" Width="192.5"/>
                     <DataGridTextColumn Header = "К-ть" Binding ="{Binding quantity}" Width="50"/>

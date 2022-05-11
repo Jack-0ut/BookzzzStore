@@ -40,8 +40,11 @@ namespace BookStore
                 int i = 0;
                 while (reader.Read())
                 {
+                    Book book = new Book((string)reader["name"], (int)reader["quantity"], (string)reader["ageRange"], (double)reader["price"]);
+                    book.id = (int)reader["id"];
+                    booksToShowList.Add(book);
                     //forming list of book from BD
-                    booksToShowList.Add(new Book((string)reader["name"], (int)reader["quantity"], (string)reader["ageRange"], (double)reader["price"]));
+                    //booksToShowList.Add(new Book((int)reader["id"], (string)reader["name"], (int)reader["quantity"], (string)reader["ageRange"], (double)reader["price"]));
                     i += 1;
                 }
                 reader.Close();

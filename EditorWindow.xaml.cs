@@ -32,7 +32,7 @@ namespace BookStore
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            editedRow.addBook = false;
         }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +53,7 @@ namespace BookStore
         {
             Book editedBook = BookList.SelectedItem as Book;
             editedRow.bookNum = BookList.SelectedIndex;
+            editedRow.bookID = editedBook.id;
             editedRow.addBook = false;
             try
             {
@@ -65,51 +66,38 @@ namespace BookStore
             {
                 MessageBox.Show("Error!");
             }
-
+            editedRow = new EditDB();
+            editedRow.addBook = false;
+            editedRow.bookNum = BookList.SelectedIndex;
+            editedRow.bookID = editedBook.id;
         }
-        private void changeBookListData(int num)
-        {
-            editedBook.name = nameValue.Text;
-            editedBook.quantity = Convert.ToInt32(quantityValue.Text);
-            editedBook.ageRange = ageRangeValue.Text;
-            editedBook.price = Convert.ToDouble(priceValue.Text);
-            if (editedRow.addBook)
-            {
-                this.dataConnection.booksToShowList.Add(editedBook);
-            }
-            else
-            {
-                this.dataConnection.booksToShowList[num] = editedBook;
-            }
-            BookList.ItemsSource = null;
-            BookList.ItemsSource = this.dataConnection.booksToShowList;
-        }
-
+        // Actions after User push button Save in GroupBox "Book"
         private void SaveRedDB_Click(object sender, RoutedEventArgs e)
         {
-            //editedBook = new Book("Пізнавальна математика", 10, "12-18", 300.00);
-            //changeBookListData(editedRow.bookNum);
+            if ((BookList.SelectedIndex < 0) && (!editedRow.addBook))
+            {
+                MessageBox.Show("Оберіть рядок для редагування подвійним кліком", "Увага!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            editedBook = new Book(nameValue.Text, int.Parse(quantityValue.Text), ageRangeValue.Text, double.Parse(priceValue.Text));
             if (editedRow.addBook == true)
             {
-                editedBook = new Book(nameValue.Text,int.Parse(quantityValue.Text),ageRangeValue.Text,double.Parse(priceValue.Text));
-                dataConnection.OpenDbFile();
-                this.BookList.ItemsSource = dataConnection.booksToShowList;
                 editedRow.addDBRecord(editedBook);
             }
             else
             {
-                dataConnection.OpenDbFile();
-                this.BookList.ItemsSource = dataConnection.booksToShowList;
                 editedRow.editDbRecord(editedBook);
+                this.dataConnection.booksToShowList[editedRow.bookNum] = editedBook;
+
             }
+            BookList.ItemsSource = null;
+            BookList.ItemsSource = this.dataConnection.OpenDbFile();
         }
+
         private void exitEditModeButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Visibility = Visibility.Collapsed;
         }
-
-
     }
 }
