@@ -4,11 +4,6 @@ namespace BookStore
 {
     public class Book
     {
-        /*int id;
-        string name;
-        int quantity;
-        string ageRange;
-        double price;*/
         public Book() { }
         public Book(string name,int quantity,string ageRange,double price)
         {
