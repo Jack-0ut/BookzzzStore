@@ -32,6 +32,10 @@ namespace BookStore
             {
                 booksToShowList = dataConnection.OpenDbFile();
                 BookList.ItemsSource = booksToShowList;
+                Book cheapestBook = new Book();
+                cheapestBook = dataConnection.minPrice();
+                minPriceBookName.Text = cheapestBook.name;
+                MinPriceBookPrice.Text = cheapestBook.price.ToString() + " UAH";
             }catch(Exception ex)
             {
                 string errMsg = "";

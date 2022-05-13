@@ -16,7 +16,7 @@ namespace BookStore
         public bool isAdmin(string loginText,string passwordText)
         {
             logUser = 0;
-            if ((loginText == "s" || loginText == "Ashenafi") && (passwordText == "1"))
+            if ((loginText == "Solovey" || loginText == "Ashenafi") && (passwordText == "12345"))
             {
                 return true;
             }

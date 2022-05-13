@@ -43,8 +43,6 @@ namespace BookStore
                     Book book = new Book((string)reader["name"], (int)reader["quantity"], (string)reader["ageRange"], (double)reader["price"]);
                     book.id = (int)reader["id"];
                     booksToShowList.Add(book);
-                    //forming list of book from BD
-                    //booksToShowList.Add(new Book((int)reader["id"], (string)reader["name"], (int)reader["quantity"], (string)reader["ageRange"], (double)reader["price"]));
                     i += 1;
                 }
                 reader.Close();
@@ -54,6 +52,22 @@ namespace BookStore
             {
                 return new List<Book>();
             }
+        }
+        public Book minPrice()
+        {
+            int minObjectIndex = 0;
+            Book minPriceObject;
+            double currentPrice = booksToShowList[0].price;
+            int i = 0;
+            for (i = 0; i < booksToShowList.Count; i++)
+            {
+                if (booksToShowList[i].price < currentPrice)
+                {
+                    currentPrice = booksToShowList[i].price;
+                    minObjectIndex = i;
+                }
+            }
+            return booksToShowList[minObjectIndex];
         }
     }
 }
