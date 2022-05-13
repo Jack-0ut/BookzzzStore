@@ -23,6 +23,7 @@ namespace BookStore
     {
         public static List<Book> booksToShowList = new List<Book>(100);
         public static Autorization autorization = new Autorization();
+        SelectData selectBooksByAgeRange;
         public static DataAccess dataConnection;
         public MainWindow()
         {
@@ -57,7 +58,14 @@ namespace BookStore
 
         private void InfoBookForm_Activated(object sender, EventArgs e)
         {
-
+            
+        }
+        // Actions after click on the "Search" button
+        private void searchAgeRangeBooks_Click(object sender, RoutedEventArgs e)
+        {
+            selectBooksByAgeRange = new SelectData();
+            selectBooksByAgeRange.selectBooksByAge(Convert.ToInt32(lowAgeTextBox.Text), Convert.ToInt32(HighAgeTextBox.Text));
+            BookList.ItemsSource = selectBooksByAgeRange.selectedBooks;
         }
     }
 }

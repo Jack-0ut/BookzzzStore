@@ -19,7 +19,7 @@ namespace BookStore
     /// </summary>
     public partial class EditorWindow : Window
     {
-        public List<Book> booksToShowList = new List<Book>(100);
+        //public List<Book> booksToShowList = new List<Book>(100);
         EditDB editedRow = new EditDB();
         Book editedBook;
         DataAccess dataConnection = MainWindow.dataConnection;
