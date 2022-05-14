@@ -21,9 +21,9 @@
 
         <Button x:Name="searchAgeRangeBooks" Content="Пошук" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="436.2,120,0,-83.8" Grid.RowSpan="2" VerticalAlignment="Top" Width="66" Background="#FF775142" Foreground="White" Grid.ColumnSpan="2" Click="searchAgeRangeBooks_Click" />
         <TextBox x:Name="highAgeTextBox" HorizontalAlignment="Left" Height="23" Margin="380.2,124,0,-83.8" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36" Grid.Column="1"/>
-        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="70" Margin="21,195,0,-201.8" Grid.RowSpan="2" VerticalAlignment="Top" Width="197" Background="#FF9A8578">
-            <TextBox x:Name="minPriceBookName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF9A8578" Foreground="White" FontSize="14"/>
-            <TextBox x:Name="MinPriceBookPrice" HorizontalAlignment="Left" Height="23" Margin="127,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" Background="#FF9A8578" Foreground="White" FontSize="14"/>
+        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="70" Margin="21,195,0,-201.8" Grid.RowSpan="2" VerticalAlignment="Top" Width="197" Background="#FF775142">
+            <TextBox x:Name="minPriceBookName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" Background="#FF775142" Foreground="White" FontSize="14" BorderBrush="#00ABADB3"/>
+            <TextBox x:Name="MinPriceBookPrice" HorizontalAlignment="Left" Height="23" Margin="127,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" Background="#FF775142" Foreground="White" FontSize="14" BorderBrush="#00ABADB3"/>
         </Grid>
         <Label x:Name="cheapestBook" Content="Найдешевша книга" HorizontalAlignment="Left" Height="33" Margin="21,145,0,-114.8" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="197"/>
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="402" Margin="243.2,92,0,-430.8" Grid.RowSpan="2" VerticalAlignment="Top" Width="465" Grid.ColumnSpan="2">
@@ -32,7 +32,7 @@
             <Label Content="Від" HorizontalAlignment="Left" Height="34" Margin="16,29,0,0" VerticalAlignment="Top" Width="38"/>
             <TextBox x:Name="lowAgeTextBox" HorizontalAlignment="Left" Height="23" Margin="63,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="36"/>
             <Label Content="до" HorizontalAlignment="Left" Height="31" Margin="108,29,0,0" VerticalAlignment="Top" Width="32"/>
-            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="462" AutoGenerateColumns="False">
+            <DataGrid x:Name ="BookList"  HorizontalAlignment="Left" Height="293" Margin="-4,65,0,0" VerticalAlignment="Top" Width="462" AutoGenerateColumns="False" CanUserAddRows="false">
                 <DataGrid.Columns >
                     <DataGridTextColumn Header = "Назва книги" Binding = "{Binding name}" Width="200"/>
                     <DataGridTextColumn Header = "К-ть" Binding ="{Binding quantity}" Width="50"/>
@@ -40,10 +40,8 @@
                     <DataGridTextColumn Header = "Ціна(UAH)" Binding ="{Binding price }" Width="112"/>
                 </DataGrid.Columns >
             </DataGrid>
-            <Label x:Name="numberRows" Content="Label" HorizontalAlignment="Left" Margin="0,363,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.686,0.047"/>
         </Grid>
         <Button x:Name="autorizationButton" Content="Авторизація" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="131,17,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="110" Background="#FF9A8578" Foreground="White" Click="autorizationButton_Click" />
-        <Label x:Name="numberRowsInList" Content="Label" HorizontalAlignment="Left" Height="35" Margin="30,287,0,-258.8" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="272"/>
 
     </Grid>
 

@@ -25,9 +25,8 @@ namespace BookStore
         public EditorWindow()
         {
             InitializeComponent();
-            MainWindow.dataConnection.OpenDbFile();
-            //for (int i = 0; i < MainWindow)
-            this.BookList.ItemsSource = MainWindow.dataConnection.booksToShowList;
+            this.dataConnection.OpenDbFile();
+            this.BookList.ItemsSource = this.dataConnection.booksToShowList;
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
@@ -56,7 +55,7 @@ namespace BookStore
             editedRow.bookID = editedBook.id;
             editedRow.addBook = false;
             try
-            {
+            { 
                 nameValue.Text = editedBook.name;
                 quantityValue.Text = Convert.ToString(editedBook.quantity);
                 ageRangeValue.Text = editedBook.ageRange;

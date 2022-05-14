@@ -10,7 +10,7 @@ namespace BookStore
 {
     class SelectData
     {
-        public List<Book> selectedBooks = new List<Book>();
+        public List<Book> selectedBooks = new List<Book>(100);
         DataAccess dataConnection = MainWindow.dataConnection;
         string filePath; // path to Word template file
         Microsoft.Office.Interop.Word.Application wordApplication;

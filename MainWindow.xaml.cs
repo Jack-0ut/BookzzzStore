@@ -33,10 +33,11 @@ namespace BookStore
             try
             {
                 booksToShowList = dataConnection.OpenDbFile();
-                for (int i = 0; i < booksToShowList.Count; i++)
-                {
-                    BookList.Items.Add(booksToShowList[i]);
-                }
+                BookList.Items.Clear();
+                BookList.ItemsSource = booksToShowList;
+                //BookList.Items.RemoveAt(BookList.Items.Count-1);
+                dbNum.Content = $"In DB {booksToShowList.Count}";
+                listNum.Content = $"In list {BookList.Items.Count}";
                 Book cheapestBook = new Book();
                 cheapestBook = dataConnection.minPrice();
                 minPriceBookName.Text = cheapestBook.name;
@@ -73,5 +74,6 @@ namespace BookStore
             selectBooksByAgeRange.writeData(dataConnection.minPrice(), selectBooksByAgeRange.selectedBooks);
 
         }
+
     }
 }
