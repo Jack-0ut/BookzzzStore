@@ -19,7 +19,6 @@ namespace BookStore
     /// </summary>
     public partial class EditorWindow : Window
     {
-        //public List<Book> booksToShowList = new List<Book>(100);
         EditDB editedRow = new EditDB();
         Book editedBook;
         DataAccess dataConnection = MainWindow.dataConnection;
@@ -27,6 +26,7 @@ namespace BookStore
         {
             InitializeComponent();
             MainWindow.dataConnection.OpenDbFile();
+            //for (int i = 0; i < MainWindow)
             this.BookList.ItemsSource = MainWindow.dataConnection.booksToShowList;
         }
 
@@ -64,7 +64,7 @@ namespace BookStore
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error!");
+                MessageBox.Show(ex.Message + char.ConvertFromUtf32(13),"",MessageBoxButton.OK,MessageBoxImage.Error);
             }
             editedRow = new EditDB();
             editedRow.addBook = false;

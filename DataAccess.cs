@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -10,7 +11,6 @@ namespace BookStore
 {
     public class DataAccess
     {
-        //List<Book> booksToShowList;
         public List<Book> booksToShowList;
         public static MySqlConnection getConnection()
         {
@@ -48,7 +48,7 @@ namespace BookStore
                 reader.Close();
                 return booksToShowList;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 return new List<Book>();
             }
@@ -56,7 +56,6 @@ namespace BookStore
         public Book minPrice()
         {
             int minObjectIndex = 0;
-            Book minPriceObject;
             double currentPrice = booksToShowList[0].price;
             int i = 0;
             for (i = 0; i < booksToShowList.Count; i++)

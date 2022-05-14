@@ -25,6 +25,7 @@ namespace BookStore
         public static Autorization autorization = new Autorization();
         SelectData selectBooksByAgeRange;
         public static DataAccess dataConnection;
+        public static string selectedAgeRange;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,10 @@ namespace BookStore
             try
             {
                 booksToShowList = dataConnection.OpenDbFile();
-                BookList.ItemsSource = booksToShowList;
+                for (int i = 0; i < booksToShowList.Count; i++)
+                {
+                    BookList.Items.Add(booksToShowList[i]);
+                }
                 Book cheapestBook = new Book();
                 cheapestBook = dataConnection.minPrice();
                 minPriceBookName.Text = cheapestBook.name;
@@ -55,17 +59,19 @@ namespace BookStore
             loginWindow.Show();
             this.Visibility = Visibility.Collapsed;
         }
-
-        private void InfoBookForm_Activated(object sender, EventArgs e)
-        {
-            
-        }
         // Actions after click on the "Search" button
         private void searchAgeRangeBooks_Click(object sender, RoutedEventArgs e)
         {
             selectBooksByAgeRange = new SelectData();
-            selectBooksByAgeRange.selectBooksByAge(Convert.ToInt32(lowAgeTextBox.Text), Convert.ToInt32(HighAgeTextBox.Text));
+            selectedAgeRange = lowAgeTextBox.Text + '-' + highAgeTextBox.Text;
+            selectBooksByAgeRange.selectBooksByAge(Convert.ToInt32(lowAgeTextBox.Text), Convert.ToInt32(highAgeTextBox.Text));
             BookList.ItemsSource = selectBooksByAgeRange.selectedBooks;
+        }
+
+        private void saveInFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectBooksByAgeRange.writeData(dataConnection.minPrice(), selectBooksByAgeRange.selectedBooks);
+
         }
     }
 }
